@@ -98,7 +98,7 @@ function serveIndex (req, res) {
 var fakeInternetEnabled = false;
 
 app.get('/', function (req, res) {
-	if (fakeInternetEnabled) {
+	if (fakeInternetEnabled && (req.hostname == "conntest.nintendowifi.net" || req.hostname == "ctest.cdn.nintendo.net")) {
 		res.set('X-Organization', 'Nintendo');
 		res.end('fake page');
 	} else {
